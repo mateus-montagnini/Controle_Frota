@@ -1,6 +1,6 @@
 package com.controle_frota.core;
 
-public class Caminhao extends Veiculo {
+public class Caminhao extends Veiculo implements iTransportador {
 
     public Caminhao(String placa, int anoFabricacao) {
         super(placa, anoFabricacao);
@@ -11,4 +11,9 @@ public class Caminhao extends Veiculo {
         this.abastecimentos.add(String.format("Local: %s, Motorista: %s, valor: R$ %.2f",
                 local, motorista, valor));
     }
+
+    @Override
+    public String transportar(System origem, String destino) {
+        return String.format("Veiculo de placa: %s, vai transportar carga" + "de %s para %s"
+                , this.getPlaca(), origem, destino);    }
 }
